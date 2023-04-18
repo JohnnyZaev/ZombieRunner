@@ -1051,6 +1051,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7356671254262091216, guid: fa3dc4e8e9e39494aaf7331ccea60809,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7356671254262091218, guid: fa3dc4e8e9e39494aaf7331ccea60809,
         type: 3}
       propertyPath: m_RootOrder
@@ -1059,7 +1064,7 @@ PrefabInstance:
     - target: {fileID: 7356671254262091218, guid: fa3dc4e8e9e39494aaf7331ccea60809,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.74
+      value: 11.33
       objectReference: {fileID: 0}
     - target: {fileID: 7356671254262091218, guid: fa3dc4e8e9e39494aaf7331ccea60809,
         type: 3}
@@ -1111,5 +1116,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1963877964}
+    - target: {fileID: 7356671254262091219, guid: fa3dc4e8e9e39494aaf7331ccea60809,
+        type: 3}
+      propertyPath: chaseRange
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa3dc4e8e9e39494aaf7331ccea60809, type: 3}

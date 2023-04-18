@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,8 +6,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float chaseRange = 5f;
 
-    private float _distanceToTarget;
     private NavMeshAgent _agent;
+    private float _distanceToTarget;
+    private bool _isProvoked = false;
 
     private void Start()
     {
@@ -18,9 +18,45 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         _distanceToTarget = Vector3.Distance(transform.position, target.position);
-        if (_distanceToTarget < chaseRange)
+
+        if (_isProvoked)
         {
-            _agent.SetDestination(target.position);
+            EngageTarget();
+        }
+        else if (_distanceToTarget < chaseRange)
+        {
+            _isProvoked = true;
         }
     }
+
+    private void EngageTarget()
+    {
+        if (_agent.stoppingDistance < _distanceToTarget)
+        {
+            ChaseTarget();
+        }
+        else
+        {
+            AttackTarget();
+        }
+    }
+
+    private void AttackTarget()
+    {
+        Debug.Log(name + " is destroyed");
+    }
+
+    private void ChaseTarget()
+    {
+        _agent.SetDestination(target.position);
+    }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
+    }
+#endif
+    
 }
