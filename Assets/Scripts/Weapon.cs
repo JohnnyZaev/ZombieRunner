@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private Camera firstPersonCamera;
+    [SerializeField] private float range = 100f;
+    
     private  ShootController _shootController;
     private InputValue _shoot;
 
@@ -25,7 +28,14 @@ public class Weapon : MonoBehaviour
     {
         if (_shootController.Shoot.Shoot.triggered)
         {
-            Debug.Log("We pew pew");
+            Shoot();
         }
+    }
+
+    private void Shoot()
+    {
+        RaycastHit hit;
+        Physics.Raycast(firstPersonCamera.transform.position, firstPersonCamera.transform.forward, out hit, range);
+        Debug.Log(hit.transform.name);
     }
 }
