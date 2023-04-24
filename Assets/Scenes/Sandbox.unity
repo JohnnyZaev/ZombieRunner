@@ -668,6 +668,25 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1 &510266964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7356671254262091054, guid: fa3dc4e8e9e39494aaf7331ccea60809,
+    type: 3}
+  m_PrefabInstance: {fileID: 7356671253341322322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &510266971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510266964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc00b64fcc31ba4eb278626a071f2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &558472213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPersonCamera: {fileID: 1608692111}
   range: 100
+  damage: 25
 --- !u!1 &1934601300
 GameObject:
   m_ObjectHideFlags: 0
