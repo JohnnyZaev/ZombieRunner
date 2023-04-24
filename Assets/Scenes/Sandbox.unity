@@ -1495,6 +1495,8 @@ MonoBehaviour:
   range: 100
   damage: 25
   shootVFX: {fileID: 2095372457}
+  hitEffect: {fileID: 1926023139099408812, guid: 16ff705da2265a241bec8a68328a135c,
+    type: 3}
 --- !u!1 &1934601300
 GameObject:
   m_ObjectHideFlags: 0

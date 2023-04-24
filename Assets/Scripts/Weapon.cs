@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float range = 100f;
     [SerializeField] private int damage = 25;
     [SerializeField] private ParticleSystem shootVFX;
+    [SerializeField] private GameObject hitEffect;
     
     private  ShootController _shootController;
     private InputValue _shoot;
@@ -40,12 +41,18 @@ public class Weapon : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(firstPersonCamera.transform.position, firstPersonCamera.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            CreateHitImpact(hit);
             EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
             if (target != null)
             {
                 target.TakeDamage(damage);
             }
         }
+    }
+
+    private void CreateHitImpact(RaycastHit hit)
+    {
+        var impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impact, 1);
     }
 }
