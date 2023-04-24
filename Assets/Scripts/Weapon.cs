@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Camera firstPersonCamera;
     [SerializeField] private float range = 100f;
     [SerializeField] private int damage = 25;
+    [SerializeField] private ParticleSystem shootVFX;
     
     private  ShootController _shootController;
     private InputValue _shoot;
@@ -35,6 +36,7 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
+        shootVFX.Play();
         RaycastHit hit;
         if (Physics.Raycast(firstPersonCamera.transform.position, firstPersonCamera.transform.forward, out hit, range))
         {
