@@ -5,6 +5,7 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private float chaseRange = 5f;
+    [SerializeField] private Animator animator;
 
     private NavMeshAgent _agent;
     private float _distanceToTarget;
@@ -25,7 +26,12 @@ public class EnemyAI : MonoBehaviour
         }
         else if (_distanceToTarget < chaseRange)
         {
+            animator.SetBool("IsRunning", true);
             _isProvoked = true;
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false);
         }
     }
 
